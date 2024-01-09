@@ -1,0 +1,7 @@
+.bgColor {
+  background: rgb(210, 210, 210);
+}
+.color {
+  filter: brightness(80%);
+  font-size: 5rem;
+}

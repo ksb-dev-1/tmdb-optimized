@@ -1,0 +1,84 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --c1: #90cea1;
+  --c2: #01b4e4;
+  --c3: #0d253f;
+
+  --g1: rgba(1, 179, 228, 0.75);
+  --g2: rgba(13, 37, 63, 0.95);
+  --border-radius-1: 3px;
+
+  --d: #07192b;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.gradient {
+  background: linear-gradient(to right, #90cea1, #01b4e4);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.tomato {
+  color: tomato;
+}
+.goldenrod {
+  color: goldenrod;
+}
+.green {
+  color: #4fcc4f;
+}
+
+.skeleton {
+  animation: skeleton-loading 0.5s linear infinite alternate;
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-color: rgb(240, 240, 240);
+  }
+  25% {
+    background-color: rgb(235, 235, 235);
+  }
+  75% {
+    background-color: rgb(230, 230, 230);
+  }
+  100% {
+    background-color: rgb(225, 225, 225);
+  }
+}
+
+.loader {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #fff;
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
