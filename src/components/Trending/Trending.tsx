@@ -2,7 +2,7 @@
 import { fetchTrending } from "@/lib/fetchTrending";
 
 // components
-import TrendingCard from "../TrendingCard/TrendingCard";
+import TrendingCard from "./TrendingCard/TrendingCard";
 
 export default async function Trending() {
   const trending = await fetchTrending("day");

@@ -7,10 +7,11 @@ import Card from "@/components/Watchlist/Card/Card";
 import WatchlistPath from "@/components/Watchlist/WatchlistPath/WatchlistPath";
 import WatchlistCategories from "@/components/Watchlist/WatchlistCategories/WatchlistCategories";
 
-export default async function Watchlist() {
+export default async function WatchlistMovies() {
   const session = await auth();
   const watchlist = await db.watchlist.findMany({
     where: {
+      mediaType: "movie",
       userId: session?.user?.id,
     },
   });
@@ -22,6 +23,7 @@ export default async function Watchlist() {
 
         <div className="flex items-start">
           <WatchlistCategories />
+
           <div className="max-w-[calc(1100px-257px)] w-[100%] ml-8">
             {watchlist.map((data: Watchlist) => (
               // <WatchlistCard data={data} key={data.id} />

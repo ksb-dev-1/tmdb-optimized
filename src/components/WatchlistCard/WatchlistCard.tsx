@@ -9,7 +9,7 @@ const url =
   "https://upload.wikimedia.org/wikipedia/commons/f/fc/No_picture_available.png";
 const IMG_PATH = "https://image.tmdb.org/t/p/w342";
 
-export default async function TrendingCard({ data }: { data: Watchlist }) {
+export default async function WatchlistCard({ data }: { data: Watchlist }) {
   const { cardId, mediaType, title, posterPath, releaseDate, voteAverage } =
     data;
 
