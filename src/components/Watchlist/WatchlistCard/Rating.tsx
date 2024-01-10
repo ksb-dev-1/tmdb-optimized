@@ -52,8 +52,8 @@ export default function Rating({
 
   return (
     <div
-      className="absolute h-10 w-10 p-[0.15rem] rounded-[50%] border-2 border-solid border-white left-4 -top-5
-    bg-[var(--c3)]"
+      className="absolute h-10 w-10 p-[0.15rem] rounded-[50%] border-2 border-solid border-white
+    bg-[var(--c3)] bottom-[-1rem]  left-[3rem]"
     >
       <Circle
         percent={rating * 10}

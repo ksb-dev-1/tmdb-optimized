@@ -32,13 +32,21 @@ export default function DeleteBtn({ id, mediaType }: Props) {
       key={id}
       onClick={handleDelete}
       type="submit"
-      className="absolute bg-[rgba(0,0,0,0.75)] top-0 right-0 w-[35px] h-[35px] cursor-pointer rounded-[3px] hover:bg-[#000] transition ease"
+      className="relative h-10 w-[110px] bg-red-500 cursor-pointer rounded-[3px] hover:bg-red-600 transition ease"
     >
-      <span className="absolute -translate-x-2/4 -translate-y-2/4 left-2/4 top-2/4 text-white text-[1.25rem]">
+      <span className="text-white">
         {loading ? (
-          <span className="loader inline-block mt-[0.35rem]"></span>
+          <div className="flex items-center justify-center">
+            <span className="loader inline-block"></span>
+            {/* <span>Deleting...</span> */}
+          </div>
         ) : (
-          <RiDeleteBin6Line />
+          <div className="flex items-center justify-center">
+            <span className="text-[1.25rem]">
+              <RiDeleteBin6Line />
+            </span>
+            <span className="inline-block ml-2 font-semibold">Delete</span>
+          </div>
         )}
       </span>
     </button>
