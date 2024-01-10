@@ -36,7 +36,7 @@ export default async function TrendingCard({ data }: { data: Watchlist }) {
         </div>
 
         <div className="relative flex flex-col pt-6 pb-2 md:pb-4 px-2 md:px-4">
-          <Rating vote_average={voteAverage} />
+          <Rating id={cardId} mediaType={mediaType} />
 
           <span className="font-bold text-[0.85rem] md:text-[1rem] mb-1 rounded min-h-[20px]">
             {title
