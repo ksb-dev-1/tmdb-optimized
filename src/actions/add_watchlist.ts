@@ -65,7 +65,9 @@ export async function addWatchlist(
   }
 
   revalidatePath("/");
-  //revalidatePath("/pages/watchlist");
+  revalidatePath("/pages/watchlist");
+  revalidatePath("/pages/watchlist/movies");
+  revalidatePath("/pages/watchlist/tv");
   return res;
 }
 

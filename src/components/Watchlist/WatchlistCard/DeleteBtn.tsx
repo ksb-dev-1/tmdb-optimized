@@ -20,7 +20,7 @@ export default function DeleteBtn({ id, mediaType }: Props) {
     if (res!.success) {
       const res = await getWatchlist();
       if (res.msg === "success") {
-        setLoading(false);
+        setTimeout(() => setLoading(false), 1000);
       }
     } else {
       console.log(res);

@@ -1,6 +1,7 @@
 import { db } from "@/db";
 import { auth } from "@/auth";
 import Watchlist from "@/components/Watchlist/Watchlist";
+import { redirect } from "next/navigation";
 
 export default async function WatchlistMoviesPage() {
   const session = await auth();
@@ -11,5 +12,9 @@ export default async function WatchlistMoviesPage() {
     },
   });
 
-  return <Watchlist watchlist={watchlist} />;
+  return (
+    <>
+      {session?.user?.id ? <Watchlist watchlist={watchlist} /> : redirect("/")}
+    </>
+  );
 }

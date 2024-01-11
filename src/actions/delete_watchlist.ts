@@ -23,7 +23,9 @@ export async function deleteWatchlist(id: any, mediaType: any) {
   }
 
   revalidatePath("/");
-  //revalidatePath("/pages/watchlist");
+  revalidatePath("/pages/watchlist");
+  revalidatePath("/pages/watchlist/movies");
+  revalidatePath("/pages/watchlist/tv");
   return res;
 }
 
