@@ -11,8 +11,6 @@ const WatchlistCardSkeleton = () => {
 
   return (
     <div className="flex flex-col px-4">
-      <WatchlistPath />
-
       <div className="flex flex-col md:flex-row items-start">
         <WatchlistCategories />
 
