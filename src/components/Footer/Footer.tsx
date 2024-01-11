@@ -13,34 +13,39 @@ import { FaGlobeAmericas } from "react-icons/fa";
 export default function Footer() {
   return (
     <footer className="bg-[var(--c3)] text-white">
-      <div className="max-w-[1280px] w-[100%] mx-auto py-4 md:py-8 px-4 md:px-8">
-        <p className="text-xl font-bold mb-2 text-[var(--c2)]">
+      <div className="max-w-[1280px] w-[100%] mx-auto py-4 md:py-8 px-4 md:px-8 flex flex-col md:items-center">
+        <p className="text-xl font-semibold mb-2 text-[var(--c2)]">
           Kedar Babaleshwar
         </p>
-        <p className="flex items-center mb-2">
-          <span className="inline-block mr-4">
-            <FaGlobeAmericas />
-          </span>
-          <span>Portfolio</span>
-        </p>
-        <p className="flex items-center mb-2">
-          <span className="inline-block mr-4">
-            <IoMailSharp />
-          </span>
-          <span>babaleshwarkedar@gmail.com</span>
-        </p>
-        <p className="flex items-center mb-2">
-          <span className="inline-block mr-4">
-            <FaPhone />
-          </span>
-          <span>+91-6361579289</span>
-        </p>
-        <p className="flex items-center mb-2">
-          <span className="inline-block mr-4">
-            <BsGithub />
-          </span>
-          <span>GitHub</span>
-        </p>
+        <div className="flex flex-col md:flex-row md:items-center">
+          <Link href="#" className="flex items-center mb-2 md:mb-0 md:mr-4">
+            <span className="inline-block mr-2">
+              <IoMailSharp />
+            </span>
+            <span>babaleshwarkedar@gmail.com</span>
+          </Link>
+          <span className="hidden md:flex">|</span>
+          <Link href="#" className="flex items-center mb-2 md:mb-0 md:mx-4">
+            <span className="inline-block mr-2">
+              <BsGithub />
+            </span>
+            <span>GitHub</span>
+          </Link>
+          <span className="hidden md:flex">|</span>
+          <p className="flex items-center mb-2 md:mb-0 md:mx-4">
+            <span className="inline-block mr-2">
+              <FaGlobeAmericas />
+            </span>
+            <span>Portfolio</span>
+          </p>
+          <span className="hidden md:flex">|</span>
+          <p className="flex items-center md:ml-4">
+            <span className="inline-block mr-2 text-[0.9rem]">
+              <FaPhone />
+            </span>
+            <span>+91-6361579289</span>
+          </p>
+        </div>
       </div>
     </footer>
     // <footer className="bg-[var(--c3)] text-white flex items-start justify-center w-full">
