@@ -9,8 +9,7 @@ const url =
 const IMG_PATH = "https://image.tmdb.org/t/p/w342";
 
 export default async function WatchistCard({ data }: { data: Watchlist }) {
-  const { cardId, mediaType, title, posterPath, releaseDate, voteAverage } =
-    data;
+  const { cardId, mediaType, title, posterPath, releaseDate } = data;
   const myBlurDataUrl = await getBase64(
     posterPath === null ? url : IMG_PATH + posterPath
   );
