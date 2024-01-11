@@ -68,37 +68,40 @@ model VerificationToken {
 }
 
 model Watchlist {
-  id          String @id @default(auto()) @map("_id") @db.ObjectId
-  cardId      Int
-  mediaType   String
-  posterPath  String
-  title       String
-  releaseDate String
-  voteAverage Int
-  user        User   @relation(fields: [userId], references: [id], onDelete: Cascade)
-  userId      String @db.ObjectId
+  id           String @id @default(auto()) @map("_id") @db.ObjectId
+  cardId       Int
+  mediaType    String
+  posterPath   String
+  backdropPath String
+  title        String
+  releaseDate  String
+  voteAverage  Int
+  user         User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId       String @db.ObjectId
 }
 
 model Movie {
-  id          String @id @default(auto()) @map("_id") @db.ObjectId
-  cardId      Int
-  mediaType   String
-  posterPath  String
-  title       String
-  releaseDate String
-  voteAverage Int
-  user        User   @relation(fields: [userId], references: [id], onDelete: Cascade)
-  userId      String @db.ObjectId
+  id           String @id @default(auto()) @map("_id") @db.ObjectId
+  cardId       Int
+  mediaType    String
+  posterPath   String
+  backdropPath String
+  title        String
+  releaseDate  String
+  voteAverage  Int
+  user         User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId       String @db.ObjectId
 }
 
 model Tv {
-  id          String @id @default(auto()) @map("_id") @db.ObjectId
-  cardId      Int
-  mediaType   String
-  posterPath  String
-  title       String
-  releaseDate String
-  voteAverage Int
-  user        User   @relation(fields: [userId], references: [id], onDelete: Cascade)
-  userId      String @db.ObjectId
+  id           String @id @default(auto()) @map("_id") @db.ObjectId
+  cardId       Int
+  mediaType    String
+  posterPath   String
+  backdropPath String
+  title        String
+  releaseDate  String
+  voteAverage  Int
+  user         User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId       String @db.ObjectId
 }

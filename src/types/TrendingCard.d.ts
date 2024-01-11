@@ -1,4 +1,4 @@
-interface MovieOrTvCard {
+interface TrendingCard {
   title?: string;
   name?: string;
   media_type: string;

@@ -11,6 +11,7 @@ interface Props {
   id: number;
   mediaType: string;
   posterPath: string;
+  backdropPath: string;
   title: string;
   releaseDate: string;
   voteAverage: number;
@@ -20,6 +21,7 @@ export default function WatchlistBtn({
   id,
   mediaType,
   posterPath,
+  backdropPath,
   title,
   releaseDate,
   voteAverage,
@@ -34,6 +36,7 @@ export default function WatchlistBtn({
       id,
       mediaType,
       posterPath,
+      backdropPath,
       title,
       releaseDate,
       voteAverage

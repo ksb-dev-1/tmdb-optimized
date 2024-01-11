@@ -13,8 +13,8 @@ export default async function Trending() {
         <p className="text-lg sm:text-xl font-bold">Trending</p>
       </div>
 
-      <div className="grid grid-cols-[repeat(auto-fill,minmax(150px,1fr))] md:grid-cols-[repeat(auto-fill,minmax(170px,1fr))] items-stretch gap-[2rem_1rem] lg:gap-[4rem_2rem]">
-        {trending.results.map((data: MovieOrTvCard) => (
+      <div className="grid grid-cols-[repeat(auto-fill,minmax(140px,1fr))] md:grid-cols-[repeat(auto-fill,minmax(170px,1fr))] items-stretch gap-[2rem_1rem] lg:gap-[4rem_2rem]">
+        {trending.results.map((data: TrendingCard) => (
           <TrendingCard data={data} key={data.id} />
         ))}
       </div>

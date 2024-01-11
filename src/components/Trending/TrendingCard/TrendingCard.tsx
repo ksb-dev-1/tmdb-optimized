@@ -9,13 +9,14 @@ const url =
   "https://upload.wikimedia.org/wikipedia/commons/f/fc/No_picture_available.png";
 const IMG_PATH = "https://image.tmdb.org/t/p/w342";
 
-export default async function TrendingCard({ data }: { data: MovieOrTvCard }) {
+export default async function TrendingCard({ data }: { data: TrendingCard }) {
   const {
     id,
     media_type,
     name,
     title,
     poster_path,
+    backdrop_path,
     release_date,
     first_air_date,
     vote_average,
@@ -65,6 +66,7 @@ export default async function TrendingCard({ data }: { data: MovieOrTvCard }) {
       <WatchlistBtn
         id={id}
         posterPath={poster_path}
+        backdropPath={backdrop_path}
         title={title ? title! : name!}
         releaseDate={release_date ? release_date! : first_air_date!}
         voteAverage={vote_average}

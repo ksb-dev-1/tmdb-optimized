@@ -1,6 +1,4 @@
 "use client";
-import style from "./skeletons.module.css";
-import { ImImage } from "react-icons/im";
 
 import { useState, useContext } from "react";
 import { TmdbContext } from "@/context/context";

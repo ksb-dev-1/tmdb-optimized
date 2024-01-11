@@ -18,7 +18,7 @@ export default function Header() {
     >
       <div
         ref={headerInnerRef}
-        className="max-w-screen-xl w-full flex items-center justify-between translate-y-[0%] transition-transform duration-[0.3s] ease-[ease] px-8 py-0"
+        className="max-w-screen-xl w-full flex items-center justify-between translate-y-[0%] transition-transform duration-[0.3s] ease-[ease] px-4 xl:px-8 py-0"
       >
         <div className="flex items-center">
           <Link

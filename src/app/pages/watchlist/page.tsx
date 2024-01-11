@@ -15,7 +15,7 @@ export default async function WatchlistTv() {
   });
 
   return (
-    <div className="max-w-[1100px] w-[100%] mx-auto mt-[2rem] md:mt-[6rem]">
+    <div className="max-w-[1100px] w-[100%] mx-auto mt-[6rem]">
       <Suspense fallback={<WatchlistCardSkeleton />}>
         <div className="flex flex-col px-4">
           {watchlist.length > 0 && <WatchlistPath />}
