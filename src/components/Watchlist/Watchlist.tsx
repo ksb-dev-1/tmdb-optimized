@@ -1,10 +1,10 @@
 import { Suspense } from "react";
 import { WatchlistBackdropSkeleton } from "@/ui/skeletons/WatchlistBackdropSkeleton";
-import WatchlistCardSkeleton from "@/ui/skeletons/WatchlistCardSkeleton";
 import WatchlistCard from "@/components/Watchlist/WatchlistCard";
 import WatchlistCategories from "@/components/Watchlist/WatchlistCategories";
 import WatchlistBackdrop from "@/components/Watchlist/WatchlistBackdrop";
 import Link from "next/link";
+import ConditionalSuspenseFallback from "./ConditionalSuspenseFallback";
 
 export default function Watchlist({ watchlist }: { watchlist: Watchlist[] }) {
   return (
@@ -15,7 +15,7 @@ export default function Watchlist({ watchlist }: { watchlist: Watchlist[] }) {
             <WatchlistBackdrop image={watchlist[0].backdropPath} />
           </Suspense>
           <div className="max-w-[1100px] w-[100%] mx-auto mt-[2rem]">
-            <Suspense fallback={<WatchlistCardSkeleton />}>
+            <ConditionalSuspenseFallback>
               <div className="flex flex-col px-4">
                 <div className="flex flex-col md:flex-row items-start">
                   <WatchlistCategories />
@@ -28,7 +28,7 @@ export default function Watchlist({ watchlist }: { watchlist: Watchlist[] }) {
                   </div>
                 </div>
               </div>
-            </Suspense>
+            </ConditionalSuspenseFallback>
           </div>
         </div>
       ) : (

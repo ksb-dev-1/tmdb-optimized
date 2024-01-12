@@ -3,6 +3,8 @@ import { createContext } from "react";
 import { useState, useEffect, useMemo } from "react";
 import { useSession } from "next-auth/react";
 import { fetchWatchlist } from "@/lib/fetchWatchlist";
+import { fetchMoviesWatchlist } from "@/lib/fetchMoviesWatchlist";
+import { fetchTvWatchlist } from "@/lib/fetchTvWatchlist";
 
 interface Props {
   watchlist: Watchlist[];
@@ -14,6 +16,9 @@ const TmdbProvider = ({ children }: { children: React.ReactNode }) => {
   const session = useSession();
   const [watchlist, setWatchlist] = useState<Watchlist[]>([]);
   const [refetch, setRefetch] = useState<boolean>(false);
+
+  const [moviesWatchlist, setMoviesWatchlist] = useState<Watchlist[]>([]);
+  const [tvWatchlist, setTvWatchlist] = useState<Watchlist[]>([]);
 
   // const memoizeWatchlist = useMemo(
   //   () => async () => {
@@ -44,11 +49,34 @@ const TmdbProvider = ({ children }: { children: React.ReactNode }) => {
 
   useEffect(() => {
     session.data?.user && getWatchlist();
-  }, [session.data?.user, refetch]);
+  }, [session.data?.user]);
+
+  const getMoviesWatchlist = async () => {
+    const res = await fetchMoviesWatchlist();
+
+    if (res) {
+      setMoviesWatchlist(res);
+    }
+  };
+
+  const getTvWatchlist = async () => {
+    const res = await fetchTvWatchlist();
+
+    if (res) {
+      setTvWatchlist(res);
+    }
+  };
+
+  useEffect(() => {
+    if (session.data?.user) {
+      getMoviesWatchlist();
+      getTvWatchlist();
+    }
+  }, [session.data?.user]);
 
   return (
     <TmdbContext.Provider
-      value={{ watchlist, refetch, setRefetch, getWatchlist }}
+      value={{ watchlist, getWatchlist, moviesWatchlist, tvWatchlist }}
     >
       {children}
     </TmdbContext.Provider>
