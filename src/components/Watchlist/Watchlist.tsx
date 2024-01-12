@@ -5,43 +5,57 @@ import WatchlistCategories from "@/components/Watchlist/WatchlistCategories";
 import WatchlistBackdrop from "@/components/Watchlist/WatchlistBackdrop";
 import Link from "next/link";
 import ConditionalSuspenseFallback from "./ConditionalSuspenseFallback";
-import { db } from "@/db";
-import { auth } from "@/auth";
+// import { db } from "@/db";
+// import { auth } from "@/auth";
 import { redirect } from "next/navigation";
 
-const getWatchlist = async (category: string): Promise<Watchlist[]> => {
-  const session = await auth();
+const getWatchlist = async (category: string) => {
+  //const session = await auth();
   let watchlist;
   try {
     if (category === "watchlist") {
-      watchlist = await db.watchlist.findMany({
-        where: {
-          userId: session?.user?.id,
-        },
-      });
+      const response = await fetch(
+        "http://localhost:3000/api/fetch_watchlist",
+        {
+          cache: "no-store",
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error(`Failed to fetch watchlist! ${response.status}`);
+      }
+
+      watchlist = await response.json();
+
+      return watchlist;
     } else {
-      watchlist = await db.watchlist.findMany({
-        where: {
-          mediaType: category,
-          userId: session?.user?.id,
-        },
-      });
-    }
-    if (!watchlist) {
-      throw new Error(`Failed to fetch watchlist! 404`);
+      const response = await fetch(
+        `http://localhost:3000/api/fetch_${category}_watchlist`,
+        {
+          cache: "no-store",
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error(
+          `Failed to fetch ${category} watchlist! ${response.status}`
+        );
+      }
+
+      watchlist = await response.json();
+      return watchlist;
     }
   } catch (error) {
     console.log(error);
   }
-  return watchlist!;
 };
 
 export default async function Watchlist({ category }: { category?: string }) {
-  const session = await auth();
   const watchlist = await getWatchlist(category!);
+
   return (
     <>
-      {session?.user?.id && watchlist.length > 1 && (
+      {watchlist && watchlist.length > 1 && (
         <div className="max-w-[1280px] w-[100%] mx-auto">
           <Suspense fallback={<WatchlistBackdropSkeleton />}>
             <WatchlistBackdrop image={watchlist[0].backdropPath} />
@@ -65,7 +79,7 @@ export default async function Watchlist({ category }: { category?: string }) {
         </div>
       )}
 
-      {session?.user?.id && watchlist.length === 0 && (
+      {watchlist && watchlist.length === 0 && (
         <div className="flex flex-col items-center justify-center h-[calc(100vh-(188px+64px))] md:h-[calc(100vh-(124px+64px))] px-4">
           <p className="font-semibold text-lg mb-4 text-center">
             Nothing to show here! Please add something to watchlist.
@@ -79,7 +93,7 @@ export default async function Watchlist({ category }: { category?: string }) {
         </div>
       )}
 
-      {!session?.user?.id && redirect("/")}
+      {/* {!session?.user?.id && redirect("/")} */}
     </>
   );
 }
