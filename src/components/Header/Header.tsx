@@ -29,8 +29,18 @@ export default function Header() {
             TMDB
             <span className="inline-block w-[55px] h-5 ml-2 mt-1 rounded-[50px] bg-[var(--c2)]"></span>
           </Link>
-          <p className="mr-[2rem] font-[500] cursor-pointer">Movies</p>
-          <p className="font-[500] cursor-pointer">TV Shows</p>
+          <Link
+            href="/pages/movies/popular/1"
+            className="mr-[2rem] font-[500] cursor-pointer"
+          >
+            Movies
+          </Link>
+          <Link
+            href="/pages/tv/popular/1"
+            className="font-[500] cursor-pointer"
+          >
+            TV Shows
+          </Link>
         </div>
 
         <div className="flex items-center">
