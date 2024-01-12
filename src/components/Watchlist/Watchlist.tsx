@@ -1,9 +1,9 @@
 import { Suspense } from "react";
-import WatchlistCardSkeleton from "@/ui/WatchlistCardSkeleton";
-import WatchlistCard from "@/components/Watchlist/WatchlistCard/WatchlistCard";
-import WatchlistCategories from "@/components/Watchlist/WatchlistCategories/WatchlistCategories";
-import WatchlistBackdrop from "@/components/Watchlist/WatchlistBackdrop/WatchlistBackdrop";
-import { WatchlistBackdropSkeleton } from "@/components/Watchlist/WatchlistBackdrop/WatchlistBackdropSkeleton";
+import { WatchlistBackdropSkeleton } from "@/ui/skeletons/WatchlistBackdropSkeleton";
+import WatchlistCardSkeleton from "@/ui/skeletons/WatchlistCardSkeleton";
+import WatchlistCard from "@/components/Watchlist/WatchlistCard";
+import WatchlistCategories from "@/components/Watchlist/WatchlistCategories";
+import WatchlistBackdrop from "@/components/Watchlist/WatchlistBackdrop";
 import Link from "next/link";
 
 export default function Watchlist({ watchlist }: { watchlist: Watchlist[] }) {
@@ -32,7 +32,7 @@ export default function Watchlist({ watchlist }: { watchlist: Watchlist[] }) {
           </div>
         </div>
       ) : (
-        <div className="mt-[2rem] md:mt-[6rem] flex flex-col items-center px-4">
+        <div className="flex flex-col items-center justify-center h-[calc(100vh-(188px+64px))] md:h-[calc(100vh-(124px+64px))] px-4">
           <p className="font-semibold text-lg mb-4 text-center">
             Nothing to show here! Please add something to watchlist.
           </p>

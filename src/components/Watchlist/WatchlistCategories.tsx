@@ -14,8 +14,8 @@ export default function WatchlistCategories() {
         href="/pages/watchlist"
         className={`font-semibold mr-4 md:mr-0 px-4 py-1 md:py-2 ${
           path == "watchlist" ? "bg-[var(--c2)] text-white" : "bg-slate-200"
-        } md:${
-          path == "watchlist" ? "bg-slate-200 md:text-black" : "bg-white"
+        } ${
+          path == "watchlist" ? "md:bg-slate-200 md:text-black" : "md:bg-white"
         } rounded`}
       >
         All
@@ -24,8 +24,8 @@ export default function WatchlistCategories() {
         href="/pages/watchlist/movies"
         className={`font-semibold mr-4 md:mr-0 px-4 py-1 md:py-2 ${
           path == "movies" ? "bg-[var(--c2)] text-white" : "bg-slate-200"
-        } md:${
-          path === "movies" ? "bg-slate-200 md:text-black" : "bg-white"
+        } ${
+          path === "movies" ? "md:bg-slate-200 md:text-black" : "md:bg-white"
         } rounded`}
       >
         Movies
@@ -34,8 +34,8 @@ export default function WatchlistCategories() {
         href="/pages/watchlist/tv"
         className={`font-semibold mr-4 md:mr-4 px-4 py-1 md:py-2 ${
           path == "tv" ? "bg-[var(--c2)] text-white" : "bg-slate-200"
-        } md:${
-          path === "tv" ? "bg-slate-200 md:text-black" : "bg-white"
+        } ${
+          path === "tv" ? "md:bg-slate-200 md:text-black" : "md:bg-white"
         } rounded`}
       >
         Tv Shows

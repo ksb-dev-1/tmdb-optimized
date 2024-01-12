@@ -3,7 +3,8 @@ import { Suspense } from "react";
 // components
 import Welcome from "../components/Welcome/Welcome";
 import Trending from "../components/Trending/Trending";
-import { WelcomeSkeleton, MovieOrTvCardSkeleton } from "../ui/skeletons";
+import { WelcomeSkeleton } from "@/ui/skeletons/WelcomeSkeleton";
+import { MovieOrTvCardSkeleton } from "@/ui/skeletons/MovieOrCardSkeleton";
 
 export default function Home() {
   return (

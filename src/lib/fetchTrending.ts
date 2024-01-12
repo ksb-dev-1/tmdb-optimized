@@ -7,7 +7,7 @@ export async function fetchTrending(value: string) {
     const response = await fetch(url);
 
     if (!response.ok) {
-      throw new Error(`Failed to fetch data ! ${response.status}`);
+      throw new Error(`Failed to fetch trending data ! ${response.status}`);
     }
 
     const data = await response.json();
